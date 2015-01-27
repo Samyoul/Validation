@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>notEmpty</h1>
+<ul>
+<li><code>v::notEmpty()</code></li>
+</ul>
+<p>Validates if the given input is not empty or in other words is input mandatory and
+required. This function also takes whitespace into account, use <code>noWhitespace()</code>
+if no spaces or linebreaks and other whitespace anywhere in the input is desired.</p>
+<pre><code class="language-php">v::string()-&gt;notEmpty()-&gt;validate(''); //false</code></pre>
+<p>Null values are empty:</p>
+<pre><code class="language-php">v::notEmpty()-&gt;validate(null); //false</code></pre>
+<p>Numbers:</p>
+<pre><code class="language-php">v::int()-&gt;notEmpty()-&gt;validate(0); //false</code></pre>
+<p>Empty arrays:</p>
+<pre><code class="language-php">v::arr()-&gt;notEmpty()-&gt;validate(array()); //false</code></pre>
+<p>Whitespace:</p>
+<pre><code class="language-php">v::string()-&gt;notEmpty()-&gt;validate('        ');  //false
+v::string()-&gt;notEmpty()-&gt;validate("\t \n \r");  //false</code></pre>
+<p>See also:</p>
+<ul>
+<li><a href="noWhitespace.html">v::noWhitespace()</a></li>
+<li><a href="nullValue.html">v::nullValue()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

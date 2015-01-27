@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>call</h1>
+<ul>
+<li><code>v::call(callable $callback)</code></li>
+</ul>
+<p>This is a very low level validator. It calls a function, method or closure
+for the input and then validates it. Consider the following variable:</p>
+<pre><code class="language-php">$url = 'http://www.google.com/search?q=respect.github.com'</code></pre>
+<p>To validate every part of this URL we could use the native <code>parse_url</code>
+function to break its parts:</p>
+<pre><code class="language-php">$parts = parse_url($url);</code></pre>
+<p>This function returns an array containing <code>scheme</code>, <code>host</code>, <code>path</code> and <code>query</code>.
+We can validate them this way:</p>
+<pre><code class="language-php">v::arr()-&gt;key('scheme', v::startsWith('http'))
+        -&gt;key('host',   v::domain())
+        -&gt;key('path',   v::string())
+        -&gt;key('query',  v::notEmpty());</code></pre>
+<p>Using <code>v::call()</code> you can do this in a single chain:</p>
+<pre><code class="language-php">v::call(
+    'parse_url',
+     v::arr()-&gt;key('scheme', v::startsWith('http'))
+        -&gt;key('host',   v::domain())
+        -&gt;key('path',   v::string())
+        -&gt;key('query',  v::notEmpty())
+)-&gt;validate($url);</code></pre>
+<p>It is possible to call methods and closures as the first parameter:</p>
+<pre><code class="language-php">v::call(array($myObj, 'methodName'), v::int())-&gt;validate($myInput);
+v::call(function($input) {}, v::int())-&gt;validate($myInput);</code></pre>
+<p>See also:</p>
+<ul>
+<li><a href="callback.html">v::callback()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

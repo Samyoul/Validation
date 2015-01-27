@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>numeric</h1>
+<ul>
+<li><code>v::numeric()</code></li>
+</ul>
+<p>Validates on any numeric value.</p>
+<pre><code class="language-php">v::numeric()-&gt;validate(-12); //true
+v::numeric()-&gt;validate('135.0'); //true</code></pre>
+<p>See also:</p>
+<ul>
+<li><a href="int.html">v::int()</a></li>
+<li><a href="digit.html">v::digit()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

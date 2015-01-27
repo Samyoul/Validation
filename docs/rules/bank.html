@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>bank</h1>
+<ul>
+<li><code>v::bank(string $countryCode)</code></li>
+</ul>
+<p>Validates a bank.</p>
+<pre><code class="language-php">v::bank("de")-&gt;validate("70169464"); //true
+v::bank("de")-&gt;validate("12345"); //false</code></pre>
+<p>These country codes are supported:</p>
+<ul>
+<li>"de" (Germany) - You must add <code>"malkusch/bav": "~1.0"</code> to your <code>require</code> property on composer.json file.</li>
+</ul>
+<p>See also</p>
+<ul>
+<li><a href="bankAccount.html">v::bankAccount()</a></li>
+<li><a href="bic.html">v::bic()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

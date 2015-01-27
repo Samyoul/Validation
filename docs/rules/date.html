@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>date</h1>
+<ul>
+<li><code>v::date()</code></li>
+<li><code>v::date($format)</code></li>
+</ul>
+<p>Validates if input is a date:</p>
+<pre><code class="language-php">v::date()-&gt;validate('2009-01-01'); //true</code></pre>
+<p>Also accepts strtotime values:</p>
+<pre><code class="language-php">v::date()-&gt;validate('now'); //true</code></pre>
+<p>And DateTime instances:</p>
+<pre><code class="language-php">v::date()-&gt;validate(new DateTime); //true</code></pre>
+<p>You can pass a format when validating strings:</p>
+<pre><code class="language-php">v::date('Y-m-d')-&gt;validate('01-01-2009'); //false</code></pre>
+<p>Format has no effect when validating DateTime instances.</p>
+<p>Message template for this validator includes <code>{{format}}</code>.</p>
+<p>See also:</p>
+<ul>
+<li><a href="between.html">v::between()</a></li>
+<li><a href="minimumAge.html">v::minimumAge()</a></li>
+<li><a href="leapDate.html">v::leapDate()</a></li>
+<li><a href="leapYear.html">v::leapYear()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>allOf</h1>
+<ul>
+<li><code>v::allOf($v1, $v2, $v3...)</code></li>
+</ul>
+<p>Will validate if all inner validators validates.</p>
+<pre><code class="language-php">v::allOf(
+    v::int(),
+    v::positive()
+)-&gt;validate(15); //true</code></pre>
+<p>This is similar to the chain (which is an allOf already), but
+its syntax allows you to set custom names for every node:</p>
+<pre><code class="language-php">v::allOf(
+    v::int()-&gt;setName('Account Number'),
+    v::positive()-&gt;setName('Higher Than Zero')
+)-&gt;setName('Positive integer')
+ -&gt;validate(15); //true</code></pre>
+<p>See also:</p>
+<ul>
+<li><a href="oneOf.html">v::oneOf()</a></li>
+<li><a href="noneOf.html">v::noneOf()</a></li>
+<li><a href="when.html">v::when()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

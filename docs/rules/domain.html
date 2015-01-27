@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/Validation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Validation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Validation/css/highlight.dark.css">
+        <link rel="stylesheet" href="/Validation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>domain</h1>
+<ul>
+<li><code>v::domain()</code></li>
+<li><code>v::domain(boolean $checkTLD)</code></li>
+</ul>
+<p>Validates domain names.</p>
+<pre><code class="language-php">v::domain()-&gt;validate('google.com');</code></pre>
+<p>You can skip <em>top level domain</em> (TLD) checks to validate internal
+domain names:</p>
+<pre><code class="language-php">v::domain(false)-&gt;validate('dev.machine.local');</code></pre>
+<p>This is a composite validator, it validates several rules
+internally:</p>
+<ul>
+<li>If input is an IP address, it fails.</li>
+<li>If input contains whitespace, it fails.</li>
+<li>If input does not contain any dots, it fails.</li>
+<li>If input has less than two parts, it fails.</li>
+<li>Input must end with a top-level-domain to pass (if not skipped).</li>
+<li>Each part must be alphanumeric and not start with an hyphen.</li>
+<li><a href="http://en.wikipedia.org/wiki/Punycode" title="Wikipedia: Punnycode">PunnyCode</a> is accepted for <a href="http://en.wikipedia.org/wiki/Internationalized_domain_name#Internationalizing_Domain_Names_in_Applications" title="Wikipedia: Internationalized domain name">Internationalizing Domain Names in Applications</a>.</li>
+</ul>
+<p>Messages for this validator will reflect rules above.</p>
+<p>See also:</p>
+<ul>
+<li><a href="tld.html">v::tld()</a></li>
+<li><a href="ip.html">v::ip()</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
